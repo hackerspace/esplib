@@ -2,14 +2,14 @@
 -- setup a telnet server that hooks the sockets input
 --
 function setupTelnetServer()
-    inUse = false
+    in_use = false
     function listenFun(sock)
-        if inUse then
+        if in_use then
             sock:send("Already in use.\n")
             sock:close()
             return
         end
-        inUse = true
+        in_use = true
 
         function s_output(str)
             if(sock ~=nil) then
@@ -19,18 +19,20 @@ function setupTelnetServer()
 
         node.output(s_output, 0)
 
-        sock:on("receive",function(sock, input)
+        sock:on("receive", function(sock, input)
                 node.input(input)
             end)
 
-        sock:on("disconnection",function(sock)
+        sock:on("disconnection", function(sock)
                 node.output(nil)
-                inUse = false
+                in_use = false
             end)
-
-        sock:send("Welcome to NodeMCU world.\n> ")
     end
 
     telnetServer = net.createServer(net.TCP, 180)
     telnetServer:listen(23, listenFun)
+
+    print('Telnet server started')
 end
+
+setupTelnetServer()

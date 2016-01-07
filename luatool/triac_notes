@@ -1,0 +1,18 @@
+triac_reg_pinout
+
+http://www.cnx-software.com/wp-content/uploads/2015/10/NodeMCU_v0.9_Pinout.png
+
+0: GPIO16
+1: GPIO5 230 sense
+2: GPIO4 triac out
+3: GPIO0
+4: GPIO2
+5: GPIO14 debug led
+6: GPIO12 ws2812 4x4 array
+7: GPIO13
+8: GPIO15
+RX: GPIO3
+TX: GPIO1
+A0:
+
+pins 1-10 has PWD
