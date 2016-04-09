@@ -1,8 +1,9 @@
 print('init.lua')
 
-uart.setup(0, 115200, 8, 0, 1)
-
+dofile('config.lua')
 dofile('pins.lua')
+
+uart.setup(0, uart_baud, 8, 0, 1)
 
 function d(f)
   dofile(f..'.lua')
@@ -12,16 +13,29 @@ function res()
   node.restart()
 end
 
-wifi.setmode(wifi.STATION)
+function ip()
+  print(wifi.sta.getip())
+end
 
-print('set mode=STATION (mode='..wifi.getmode()..')')
-print('MAC: ',wifi.sta.getmac())
-print('chip: ',node.chipid())
-print('heap: ',node.heap())
+function apip()
+  print(wifi.ap.getip())
+end
 
--- wifi config start
-wifi.sta.config("SSID","MasterPassword")
--- wifi config end
+if wifi_sta == 1 then
+  wifi.setmode(wifi.STATION)
+
+  print('set mode=STATION (mode='..wifi.getmode()..')')
+  print('MAC: ', wifi.sta.getmac())
+  print('chip: ', node.chipid())
+  print('heap: ', node.heap())
+
+  wifi.sta.config(wifi_ssid, wifi_pass)
+end
+
+if wifi_ap == 1 then
+  wifi.setmode(wifi.SOFTAP)
+  d('ap')
+end
 
 CMDFILE = 'main.lua'
 tmr.alarm(0, 3000, 0, function() dofile(CMDFILE) end )
