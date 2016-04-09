@@ -68,7 +68,10 @@ class AbstractTransport:
                     if line+'\r' == expected:
                         sys.stdout.write(" -> ok")
                     else:
-                        if line[:4] == "lua:":
+                        if line.startswith('net_'):
+                            print('Ignoring debug message')
+                            self.performcheck(expected)
+                        elif line[:4] == "lua:":
                             sys.stdout.write("\r\n\r\nLua ERROR: %s" % line)
                             raise Exception('ERROR from Lua interpreter\r\n\r\n')
                         else:
