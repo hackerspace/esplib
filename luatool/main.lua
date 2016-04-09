@@ -1,13 +1,11 @@
 print('main.lua')
 
-d('telnetsrv')
+d('bridge')
 d('blink')
-d('triac')
+d('pwm')
 
 out(debug_led_pin)
---out(triac)
 blink(debug_led_pin)
-telnetsrv()
 
 function sense()
   print('Sensing')
