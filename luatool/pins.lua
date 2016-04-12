@@ -1,4 +1,4 @@
--- 0: GPIO16
+-- 0: GPIO16 sense
 -- 1: GPIO5
 -- 2: GPIO4
 -- 3: GPIO0 (Special: Bootloader when low)
@@ -14,3 +14,4 @@ enable_pin = 5
 dir_pin = 6
 step_pin = 7
 debug_led_pin = 2
+sense_pin = 16
