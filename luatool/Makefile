@@ -5,6 +5,7 @@ FILE_LIST = \
 	    ap.lua \
 	    apclient.lua \
 	    init.lua \
+	    int.lua \
 	    blink.lua \
 	    bridge.lua \
 	    config.lua \
