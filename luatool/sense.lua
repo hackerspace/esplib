@@ -1,3 +1,4 @@
+print("Sensing on ", sense_pin)
 gpio.mode(sense_pin, gpio.INT)
 skip = true
 gpio.trig(sense_pin, "high", function(l)
@@ -9,7 +10,7 @@ gpio.trig(sense_pin, "high", function(l)
    -- if skip then
    --  skip = false
    -- else
-     triac_pulse()
+     print('Sensing disturbance in the force')
    --  skip = true
     --end
     --print("lal")
