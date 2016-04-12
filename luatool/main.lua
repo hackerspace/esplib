@@ -1,6 +1,8 @@
 print('main.lua')
 
-d('bridge')
+d('telnetsrv')
+-- d('sense')
+-- d('bridge')
 d('blink')
 d('pwm')
 
