@@ -13,6 +13,8 @@ FILE_LIST = \
 	    check.lua \
 	    pins.lua \
 	    pwm.lua \
+	    sense.lua \
+	    telnetsrv.lua \
 	    wifi_scan.lua \
 	    wifi_mon.lua \
 
