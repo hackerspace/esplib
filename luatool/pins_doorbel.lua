@@ -1,0 +1,13 @@
+-- 0: GPIO16 sense
+-- 1: GPIO5
+-- 2: GPIO4
+-- 3: GPIO0 (Special: Bootloader when low)
+-- 4: GPIO2
+-- 5: GPIO14
+-- 6: GPIO12
+-- 7: GPIO13
+-- 8: GPIO15
+-- RX: GPIO3
+-- TX: GPIO1
+-- A0:
+sense_pin = 0
