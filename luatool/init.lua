@@ -9,6 +9,12 @@ function d(f)
   dofile(f..'.lua')
 end
 
+function abort()
+  tmr.stop(0)
+end
+
+a = abort
+
 function res()
   node.restart()
 end
