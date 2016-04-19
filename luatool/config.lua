@@ -1,3 +1,5 @@
+-- node_cpu = node.CPU80MHZ
+node_cpu = node.CPU160MHZ
 wifi_ap = 0
 wifi_sta = 1
 wifi_ssid = 'esp'

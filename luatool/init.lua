@@ -4,6 +4,7 @@ dofile('config.lua')
 dofile('pins.lua')
 
 uart.setup(0, uart_baud, 8, 0, 1)
+node.setcpufreq(node_cpu)
 
 function d(f)
   dofile(f..'.lua')
