@@ -4,20 +4,24 @@ DEVICE=/dev/ttyUSB0
 FILE_LIST = \
 	    ap.lua \
 	    apclient.lua \
+	    debounce.lua \
+	    debounce2.lua \
 	    init.lua \
 	    int.lua \
 	    blink.lua \
 	    bridge.lua \
 	    config.lua \
 	    main.lua \
-	    telnetsrv.lua \
 	    check.lua \
 	    pins.lua \
 	    pwm.lua \
+	    signal.lua \
 	    sense.lua \
-	    telnetsrv.lua \
+	    sntp.lua \
 	    wifi_scan.lua \
 	    wifi_mon.lua \
+	    wifi_client.lua \
+	    telnetsrv.lua \
 
 CMD=./luatool.py -b $(BAUD) -p $(DEVICE) -f
 
@@ -33,3 +37,11 @@ killminiterm:
 
 #all: .init.luac
 all: killminiterm $(CLIST)
+# all
+slider: 
+	$(CMD) main_slider.lua -t main.lua
+	$(CMD) pins_slider.lua -t pins.lua
+
+doorbel: 
+	$(CMD) main_doorbel.lua -t main.lua
+	$(CMD) pins_doorbel.lua -t pins.lua
