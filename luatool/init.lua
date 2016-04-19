@@ -22,14 +22,7 @@ function apip()
 end
 
 if wifi_sta == 1 then
-  wifi.setmode(wifi.STATION)
-
-  print('set mode=STATION (mode='..wifi.getmode()..')')
-  print('MAC: ', wifi.sta.getmac())
-  print('chip: ', node.chipid())
-  print('heap: ', node.heap())
-
-  wifi.sta.config(wifi_ssid, wifi_pass)
+  d('wifi_client')
 end
 
 if wifi_ap == 1 then
