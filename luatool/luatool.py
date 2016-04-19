@@ -28,7 +28,7 @@ from os.path import basename
 
 version = "0.6.4"
 
-comment_re = re.compile("^\s*--|^\s*\r$")
+comment_re = re.compile("\s*--.*$|^\s*\r$")
 
 
 class TransportError(Exception):
@@ -295,8 +295,8 @@ if __name__ == '__main__':
         sys.stderr.write("\r\nStage 3. Start writing data to flash memory...")
 
     for line in f.readlines():
-        if not args.with_comments and comment_re.match(line):
-            continue
+        if not args.with_comments and comment_re.findall(line):
+            line = comment_re.sub('', line)
 
         transport.writer(line.strip())
 
