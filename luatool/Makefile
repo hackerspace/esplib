@@ -42,6 +42,15 @@ slider:
 	$(CMD) main_slider.lua -t main.lua
 	$(CMD) pins_slider.lua -t pins.lua
 
-doorbel: 
+doorbel:
 	$(CMD) main_doorbel.lua -t main.lua
 	$(CMD) pins_doorbel.lua -t pins.lua
+
+lights:
+	$(CMD) main_lights.lua -t main.lua
+	$(CMD) pins_lights.lua -t pins.lua
+
+gps:
+	$(CMD) main_gps.lua -t main.lua
+	$(CMD) config_gps.lua -t config.lua
+#	$(CMD) pins_gps.lua -t pins.lua
