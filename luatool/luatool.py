@@ -118,6 +118,8 @@ class SerialTransport(AbstractTransport):
         else:
             sys.stdout.write(" -> send without check")
 
+        sys.stdout.flush()
+
     def read(self, length):
         return self.serial.read(length)
 
@@ -142,7 +144,7 @@ class TcpSocketTransport(AbstractTransport):
         except socket.error as e:
             raise TransportError(e.strerror)
         # read intro from telnet server (see telnet_srv.lua)
-        self.socket.recv(50)
+        # self.socket.recv(50)
 
     def writeln(self, data, check=1):
         if len(data) > 0:

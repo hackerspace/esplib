@@ -3,13 +3,15 @@ DEVICE=/dev/ttyUSB0
 
 FILE_LIST = \
 	    ap.lua \
+	    adc.lua \
 	    apclient.lua \
 	    debounce.lua \
 	    debounce2.lua \
+	    enduser.lua \
 	    init.lua \
 	    int.lua \
+	    list.lua \
 	    blink.lua \
-	    bridge.lua \
 	    config.lua \
 	    main.lua \
 	    check.lua \
@@ -22,6 +24,7 @@ FILE_LIST = \
 	    wifi_mon.lua \
 	    wifi_client.lua \
 	    telnetsrv.lua \
+	    bridge.lua \
 
 CMD=./luatool.py -b $(BAUD) -p $(DEVICE) -f
 

@@ -6,5 +6,4 @@ function runpwm(pin, clock, duty)
   pwm.start(pin)
 end
 
--- runpwm
-runpwm(step_pin, 100, 500)
+-- runpwm(step_pin, 10, 500)
