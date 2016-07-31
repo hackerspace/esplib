@@ -57,3 +57,10 @@ gps:
 	$(CMD) main_gps.lua -t main.lua
 	$(CMD) config_gps.lua -t config.lua
 #	$(CMD) pins_gps.lua -t pins.lua
+quad:
+	$(CMD) main_quad.lua -t main.lua
+
+ws:
+	$(CMD) main_ws.lua -t main.lua
+	$(CMD) pins_ws.lua -t pins.lua
+	$(CMD) wifi_ws2812.lua
