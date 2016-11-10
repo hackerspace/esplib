@@ -45,6 +45,18 @@ else
   end
 end
 
+function out(pin)
+  gpio.mode(pin, gpio.OUTPUT)
+end
+
+function lo(pin)
+  gpio.write(pin, gpio.LOW)
+end
+
+function hi(pin)
+  gpio.write(pin, gpio.HIGH)
+end
+
 CMDFILE = 'main.lua'
 tmr.alarm(0, 3000, 0, function() dofile(CMDFILE) end )
 

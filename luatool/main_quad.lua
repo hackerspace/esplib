@@ -2,8 +2,13 @@ print('main.lua')
 
 tsrv = nil
 
-gpio.mode(out1, gpio.OUTPUT)
-gpio.mode(out2, gpio.OUTPUT)
+d('blink')
+d('telnetsrv')
+
+out(out1)
+out(out2)
+out(debug_led)
+blink(debug_led)
 
 ws_str = string.char(
 255,0,0,246,8,0,238,17,0,229,25,0,221,34,0,
@@ -20,7 +25,7 @@ ws_str = string.char(
 221,34,0,229,25,0,238,17,0,246,8,0,255,0,0)
 ws2812.write(1337, ws_str)
 
-tmr.alarm(0, 1000, 1, function()
+tmr.alarm(0, 10, 1, function()
   ws2812.write(1337, ws_str)
 end)
 

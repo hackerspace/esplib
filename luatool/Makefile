@@ -1,5 +1,15 @@
 BAUD=115200
+TERM=miniterm.py
 DEVICE=/dev/ttyUSB0
+
+INIT_LIST = \
+	    ap.lua \
+	    blink.lua \
+	    init.lua \
+	    config.lua \
+	    main.lua \
+	    pins.lua \
+	    wifi_client.lua
 
 FILE_LIST = \
 	    ap.lua \
@@ -20,25 +30,38 @@ FILE_LIST = \
 	    signal.lua \
 	    sense.lua \
 	    sntp.lua \
+	    wait_wifi.lua \
 	    wifi_scan.lua \
 	    wifi_mon.lua \
 	    wifi_client.lua \
 	    telnetsrv.lua \
 	    bridge.lua \
+	    udpsrv.lua \
 
 CMD=./luatool.py -b $(BAUD) -p $(DEVICE) -f
 
+INITLIST=$(FILE_LIST:.lua=.luac)
 CLIST=$(FILE_LIST:.lua=.luac)
-# CLIST=$(FILE_LIST)
-# $(FILE_LIST)
 
 $(CLIST):
 	$(CMD) `echo $@ | sed 's/.luac/.lua/'`
 
-killminiterm:
-	-/usr/bin/pkill -f 'miniterm.py $(DEVICE)'
+$(INITLIST):
+	$(CMD) `echo $@ | sed 's/.luac/.lua/'`
 
-#all: .init.luac
+term:
+	$(TERM) $(DEVICE) $(BAUD)
+
+killminiterm:
+	-/usr/bin/pkill -f '$(TERM) $(DEVICE)'
+
+reset:
+	stty -F $(DEVICE) $(BAUD)
+	echo -e "\r\n" > $(DEVICE)
+	echo -e "node.restart()\r\n" | tee | cat > $(DEVICE)
+	echo -e "\r\n" > $(DEVICE)
+
+init: killminiterm $(INITLIST)
 all: killminiterm $(CLIST)
 # all
 slider: 
@@ -64,3 +87,23 @@ ws:
 	$(CMD) main_ws.lua -t main.lua
 	$(CMD) pins_ws.lua -t pins.lua
 	$(CMD) wifi_ws2812.lua
+	$(CMD) wait_wifi.lua
+
+vu:
+	$(CMD) main_vu.lua -t main.lua
+	$(CMD) pins_vu.lua -t pins.lua
+	$(CMD) udpsrv.lua
+
+vu2:
+	$(CMD) main_vu2.lua -t main.lua
+	$(CMD) pins_vu.lua -t pins.lua
+	$(CMD) udpsrv.lua
+
+wsblink:
+	$(CMD) main_wsblink.lua -t main.lua
+	$(CMD) pins_ws.lua -t pins.lua
+	$(CMD) udpsrv.lua
+
+bridge:
+	$(CMD) main_bridge.lua -t main.lua
+	$(CMD) bridge.lua

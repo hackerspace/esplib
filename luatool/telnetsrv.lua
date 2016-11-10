@@ -1,4 +1,4 @@
-telnetsrv = net.createServer(net.TCP, 180)
+telnetsrv = net.createServer(net.TCP, 28800)
 telnetsrv:listen(23, function(socket)
     local fifo = {}
     local fifo_drained = true

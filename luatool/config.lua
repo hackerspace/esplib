@@ -11,3 +11,5 @@ wifi_ssid = "Sample"
 wifi_pass = "mywifi"
 telnetport = 23
 uart_baud = 115200
+
+led_count = 240

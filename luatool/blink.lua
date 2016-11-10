@@ -1,8 +1,5 @@
 on=0
 
-function out(pin)
-  gpio.mode(pin, gpio.OUTPUT)
-end
 
 function toggle(pin)
   if on==0 then

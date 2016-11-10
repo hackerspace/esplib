@@ -11,15 +11,16 @@ end
 
 rssimin = 100
 rssimax = 0
-leds = 16
-
-local b = ws2812.newBuffer(leds + 10, 3); b:fill(0, 0, 0); tmr.alarm(0, 1000, 1, function()
-  rssi = wifi.sta.getrssi() * -1
+leds = 6
+local b = ws2812.newBuffer(leds + 10, 3);
+  b:fill(0, 0, 0);
+  tmr.alarm(0, 1000, 1, function()
+  rssi = wifi.sta.getrssi()
+  if not rssi then return end
+  rssi = rssi * -1
   if rssi > rssimax then rssimax = rssi end
   if rssi < rssimin then rssimin = rssi end
-
   rssi = scale(rssi, rssimin, rssimax, 0, leds)
-
   for i=1,leds do
     if rssi < i then
       b:set(i, 255, 0, 0)
