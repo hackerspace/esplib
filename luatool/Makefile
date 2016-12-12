@@ -107,3 +107,8 @@ wsblink:
 bridge:
 	$(CMD) main_bridge.lua -t main.lua
 	$(CMD) bridge.lua
+
+funky_bridge:
+	$(CMD) main_funky_bridge.lua -t main.lua
+	$(CMD) funky_bridge.lua
+	$(CMD) ws2812.lua
