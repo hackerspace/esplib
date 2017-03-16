@@ -1,12 +1,12 @@
-on=0
+blink_on=0
 
 
 function toggle(pin)
-  if on==0 then
-    on=1
+  if blink_on==0 then
+    blink_on=1
     gpio.write(pin, gpio.HIGH)
   else
-    on=0
+    blink_on=0
     gpio.write(pin, gpio.LOW)
   end
 end
