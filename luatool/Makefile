@@ -113,3 +113,17 @@ funky_bridge:
 	$(CMD) main_funky_bridge.lua -t main.lua
 	$(CMD) funky_bridge.lua
 	$(CMD) ws2812.lua
+
+plotter:
+	$(CMD) main_plotter.lua -t main.lua
+	$(CMD) pins_plotter.lua -t pins.lua
+	$(CMD) stepper.lua
+
+triac:
+	$(CMD) main_triac.lua -t main.lua
+	$(CMD) pins_triac.lua -t pins.lua
+
+printroom:
+	$(CMD) main_printroom.lua -t main.lua
+	$(CMD) pins_printroom.lua -t pins.lua
+	$(CMD) ws2812.lua
