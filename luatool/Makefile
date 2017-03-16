@@ -2,8 +2,9 @@ BAUD=115200
 TERM=miniterm.py
 DEVICE=/dev/ttyUSB0
 
-INIT_LIST = \
+FILE_LIST = \
 	    ap.lua \
+	    apclient.lua \
 	    blink.lua \
 	    init.lua \
 	    config.lua \
@@ -11,7 +12,7 @@ INIT_LIST = \
 	    pins.lua \
 	    wifi_client.lua
 
-FILE_LIST = \
+FULL_FILE_LIST = \
 	    ap.lua \
 	    adc.lua \
 	    apclient.lua \
