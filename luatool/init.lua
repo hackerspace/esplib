@@ -28,6 +28,10 @@ function apip()
   print(wifi.ap.getip())
 end
 
+function whoami()
+  print(hostname)
+end
+
 if wifi_disable == 1 then
   wifi.setmode(wifi.NULLMODE)
 else
