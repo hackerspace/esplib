@@ -12,13 +12,4 @@
 -- 11: GPIO9 (crashes)
 -- 12: GPIO10
 -- A0:
-mot0 = 1
-mot1 = 6
-mot2 = 7
-las0 = 12
-
-unu1 = 0
-unu2 = 5
-unu3 = 11
-
 debug_led = 8
