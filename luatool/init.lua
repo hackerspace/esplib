@@ -28,8 +28,11 @@ function apip()
   print(wifi.ap.getip())
 end
 
-function whoami()
-  print(hostname)
+function whoami() print(hostname) end
+function ping(automated) if automated == 1 then print("!ok") else print("pong") end end
+function safecall(codestr)
+  status,err = pcall(function() loadstring(codestr)() end)
+  if not status then print(err) end
 end
 
 if wifi_disable == 1 then
