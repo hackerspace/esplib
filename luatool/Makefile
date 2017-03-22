@@ -39,7 +39,7 @@ FULL_FILE_LIST = \
 	    bridge.lua \
 	    udpsrv.lua \
 
-CMD=./luatool.py -b $(BAUD) -p $(DEVICE) -f
+CMD=./luatool.py --delay 0.1 -b $(BAUD) -p $(DEVICE) -f
 
 INITLIST=$(FILE_LIST:.lua=.luac)
 CLIST=$(FILE_LIST:.lua=.luac)
