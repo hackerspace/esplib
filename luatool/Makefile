@@ -127,3 +127,7 @@ printroom:
 	$(CMD) main_printroom.lua -t main.lua
 	$(CMD) pins_printroom.lua -t pins.lua
 	$(CMD) ws2812.lua
+
+telnetsrv:
+	$(CMD) main_telnetsrv.lua -t main.lua
+	$(CMD) telnetsrv.lua
