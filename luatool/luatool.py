@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 #
 # ESP8266 luatool
 # Author e-mail: 4ref0nt@gmail.com
