@@ -15,7 +15,6 @@ function scale(x, in_min, in_max, out_min, out_max)
 end
 
 buf = ws2812.newBuffer(max_led_count + 1, 3);
---b:fill(0, 0, 0);
 r = 0
 g = 0
 b = 0
@@ -42,12 +41,8 @@ function update()
   for i=led_count+1,max_led_count-1 do
         buf:set(i, 0, 0, 0)
   end
-  buf:write(0)
+  ws2812:write(0)
 end
-
---tmr.alarm(1, 100, 1, function()
---  update()
---end)
 
 function go(nled_count)
   led_count = nled_count

@@ -36,7 +36,7 @@ function update()
    for i=1,led_count do
         buf:set(i, g, r, b)
   end
-  buf:write(0)
+  ws2812.write(buf)
 end
 
 function go(nr, ng, nb)

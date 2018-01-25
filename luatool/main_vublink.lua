@@ -12,7 +12,6 @@ function scale(x, in_min, in_max, out_min, out_max)
 end
 
 buf = ws2812.newBuffer(led_count + 1, 3);
---b:fill(0, 0, 0);
 r = 0
 g = 0
 b = 0
@@ -36,7 +35,7 @@ function update()
    for i=1,led_count do
         buf:set(i, g, r, b)
   end
-  buf:write(0)
+  ws2812:write(0)
 end
 
 function go(nr, ng, nb)

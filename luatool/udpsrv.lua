@@ -1,6 +1,5 @@
-udpsrv = net.createServer(net.UDP)
-udpsrv:on("receive", function(c, l)
-  -- print(l)
-  node.input(l)           -- works like pcall(loadstring(l)) but support multiple separate line
+udpsock = net.createUDPSocket()
+udpsock:on("receive", function(s, data, port, ip)
+  node.input(data) -- works like pcall(loadstring(l)) but support multiple separate line
 end)
-udpsrv:listen(2333)
+udpsock:listen(2333)
