@@ -93,6 +93,7 @@ ws:
 vu:
 	$(CMD) main_vu.lua -t main.lua
 	$(CMD) pins_vu.lua -t pins.lua
+	$(CMD) telnetsrv.lua
 	$(CMD) udpsrv.lua
 
 vu2:
