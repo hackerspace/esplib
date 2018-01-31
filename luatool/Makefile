@@ -1,6 +1,8 @@
 BAUD=115200
 TERM=miniterm.py
+TELNET=telnet
 DEVICE=/dev/ttyUSB0
+IPADDR=
 
 FILE_LIST = \
 	    ap.lua \
@@ -39,7 +41,11 @@ FULL_FILE_LIST = \
 	    bridge.lua \
 	    udpsrv.lua \
 
+ifeq ($(IPADDR),)
 CMD=./luatool.py --delay 0.1 -b $(BAUD) -p $(DEVICE) -f
+else
+CMD=./luatool.py --delay 0.1 --ip $(IPADDR) -f
+endif
 
 INITLIST=$(FILE_LIST:.lua=.luac)
 CLIST=$(FILE_LIST:.lua=.luac)
@@ -51,7 +57,11 @@ $(INITLIST):
 	$(CMD) `echo $@ | sed 's/.luac/.lua/'`
 
 term:
+ifeq ($(IPADDR),)
 	$(TERM) $(DEVICE) $(BAUD)
+else
+	$(TELNET) $(IPADDR) 23
+endif
 
 killminiterm:
 	-/usr/bin/pkill -f '$(TERM) $(DEVICE)'
