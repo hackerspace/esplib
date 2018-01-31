@@ -46,6 +46,12 @@ function go(nr, ng, nb)
   update()
 end
 
+function get()
+  print(r)
+  print(g)
+  print(b)
+end
+
 function setOne(i, nr, ng, nb)
   buf:set(i, g, r, b)
 end
