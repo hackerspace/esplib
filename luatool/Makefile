@@ -1,7 +1,7 @@
 BAUD=115200
 TERM=miniterm.py
 TELNET=telnet
-DEVICE=/dev/ttyUSB0
+TARGET ?= /dev/ttyUSB0
 IPADDR=
 
 FILE_LIST = \
@@ -42,7 +42,7 @@ FULL_FILE_LIST = \
 	    udpsrv.lua \
 
 ifeq ($(IPADDR),)
-CMD=./luatool.py --delay 0.1 -b $(BAUD) -p $(DEVICE) -f
+CMD=./luatool.py --delay 0.1 -b $(BAUD) -p $(TARGET) -f
 else
 CMD=./luatool.py --delay 0.1 --ip $(IPADDR) -f
 endif
@@ -58,7 +58,7 @@ $(INITLIST):
 
 term:
 ifeq ($(IPADDR),)
-	$(TERM) $(DEVICE) $(BAUD)
+	$(TERM) $(TARGET) $(BAUD)
 else
 	$(TELNET) $(IPADDR) 23
 endif

@@ -1,6 +1,6 @@
-hostname = "esp"
--- node_cpu = node.CPU80MHZ
-node_cpu = node.CPU160MHZ
+
+wait_wifi = 1
+
 wifi_disable = 0
 wifi_ap = 1
 wifi_ap_ssid = hostname

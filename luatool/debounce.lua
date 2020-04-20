@@ -1,4 +1,4 @@
-debounce_pin = 4
+debounce_pin = user_sw
 
 function debounce (func)
     local last = 0
@@ -16,7 +16,7 @@ function debounce (func)
 end
 
 function onChange ()
-    print('The pin value has changed to '..gpio.read(pin))
+    print('The pin value has changed to '..gpio.read(debounce_pin))
 end
 
 -- example:

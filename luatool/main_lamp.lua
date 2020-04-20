@@ -1,3 +1,13 @@
+print('main.lua')
+
+mdns.register("lamp",
+              { description="Lamp"
+              , location="Big lamp"
+              , service="telnet", port=23 })
+sntp.sync(nil, nil, nil, 1)
+
+d('telnetsrv')
+
 out(0)
 out(2)
 out(1)
@@ -32,3 +42,6 @@ function all()
     lo(5)
     lo(6)
 end
+
+all()
+print('/main.lua')

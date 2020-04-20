@@ -33,6 +33,17 @@ function ping(automated) if automated == 1 then print("!ok") else print("pong") 
 function safecall(codestr)
   status,err = pcall(function() loadstring(codestr)() end)
   if not status then print(err) end
+  return status
+end
+function rpc(codestr)
+  safecall(codestr)
+  print("!ok_rpc")
+end
+function ls()
+  l = file.list();
+  for k,v in pairs(l) do
+    print("name:"..k..", size:"..v)
+  end
 end
 
 if wifi_disable == 1 then
@@ -64,7 +75,11 @@ function hi(pin)
   gpio.write(pin, gpio.HIGH)
 end
 
-CMDFILE = 'main.lua'
-tmr.alarm(0, 3000, 0, function() dofile(CMDFILE) end )
+if wait_wifi then
+  CMDFILE = 'wait_wifi'
+else
+  CMDFILE = 'main'
+end
+tmr.alarm(0, 3000, 0, function() d(CMDFILE) end )
 
 print('/init.lua')

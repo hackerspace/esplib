@@ -59,7 +59,7 @@ class AbstractTransport:
         char = ''
         i = -1
         while char != chr(62):  # '>'
-            char = self.read(1)
+            char = self.read(1).decode()
             if char == '':
                 raise Exception('No proper answer from MCU')
             if char == chr(13) or char == chr(10):  # LF or CR
@@ -111,7 +111,7 @@ class SerialTransport(AbstractTransport):
         if len(data) > 0:
             sys.stdout.write("\r\n->")
             sys.stdout.write(data.split("\r")[0])
-        self.serial.write(data)
+        self.serial.write(data.encode())
         sleep(self.delay)
         if check > 0:
             self.performcheck(data)
